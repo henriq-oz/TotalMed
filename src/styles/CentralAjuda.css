@@ -1,0 +1,245 @@
+/* Central de Ajuda do paciente. As cores vêm de tema.css. */
+
+/* Botão flutuante */
+.help-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* Invertido em relação à página, para destacar nos dois temas. */
+  background: var(--text-primary);
+  color: var(--content-bg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.help-fab:hover {
+  transform: translateY(-2px);
+}
+
+.help-fab:focus-visible,
+.ajuda-fechar:focus-visible,
+.ajuda-item summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Painel: o <dialog> fica transparente e só posiciona; quem pinta é o
+   .ajuda-painel. Assim todo clique que chega no <dialog> é clique no fundo. */
+.ajuda {
+  /* Em vez de centralizar, ancora o painel no canto do botão, longe do menu
+     e do conteúdo principal. */
+  margin: auto 24px 24px auto;
+  width: 400px;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+  color: var(--text-primary);
+}
+
+.ajuda::backdrop {
+  background: rgba(10, 15, 22, 0.5);
+}
+
+.ajuda[open] {
+  animation: ajuda-entra 0.18s ease-out;
+}
+
+@keyframes ajuda-entra {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.ajuda-painel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 48px);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.ajuda-cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 24px 22px 16px;
+  text-align: center;
+}
+
+.ajuda-emblema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.ajuda-cabecalho h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ajuda-cabecalho p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.ajuda-fechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 24px;
+  line-height: 1;
+  padding: 2px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ajuda-fechar:hover {
+  background: var(--nav-hover);
+  color: var(--text-primary);
+}
+
+/* Só a lista rola; título e botão de fechar ficam sempre à vista. */
+.ajuda-corpo {
+  min-height: 0;
+  padding: 0 22px 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.ajuda-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ajuda-item {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--content-bg);
+}
+
+.ajuda-item summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ajuda-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.ajuda-item summary:hover {
+  background: var(--nav-hover);
+}
+
+.ajuda-item-icone,
+.ajuda-seta {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ajuda-item-icone {
+  color: var(--accent-dark);
+}
+
+.ajuda-item-titulo {
+  flex: 1;
+}
+
+.ajuda-seta {
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+}
+
+.ajuda-item[open] .ajuda-seta {
+  transform: rotate(180deg);
+}
+
+.ajuda-item p {
+  margin: 0;
+  /* Alinha a resposta com o texto da pergunta (ícone de 20px + espaçamento). */
+  padding: 2px 14px 14px 44px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.ajuda-rodape {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--card-border);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .ajuda {
+    margin: auto 12px 12px;
+    width: auto;
+  }
+
+  .ajuda-painel {
+    max-height: calc(100dvh - 24px);
+  }
+
+  .ajuda-cabecalho {
+    padding: 20px 16px 14px;
+  }
+
+  .ajuda-corpo {
+    padding: 0 16px 16px;
+  }
+
+  .ajuda-item p {
+    padding-left: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ajuda[open] {
+    animation: none;
+  }
+
+  .help-fab,
+  .ajuda-seta {
+    transition: none;
+  }
+}

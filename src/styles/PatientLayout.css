@@ -1,0 +1,203 @@
+/* As cores vêm de tema.css. */
+.patient-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--content-bg);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Sidebar */
+.patient-sidebar {
+  /* Sem border-box o padding somava aos 100vh e a página sempre rolava. */
+  box-sizing: border-box;
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-logo {
+  padding: 0 8px 20px 8px;
+}
+
+.sidebar-logo img {
+  width: auto;
+  height: 65px;
+}
+
+.patient-identity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 10px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+}
+
+.patient-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-dark);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.patient-identity-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.patient-identity-text strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patient-identity-text span {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+  background: var(--nav-hover);
+}
+
+.nav-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-item-active {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.nav-item-logout:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* Main content */
+.patient-main {
+  flex: 1;
+  padding: 44px 48px;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .patient-sidebar {
+    width: 210px;
+    padding: 20px 12px;
+  }
+
+  .patient-main {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .patient-shell {
+    flex-direction: column;
+  }
+
+  .patient-sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .sidebar-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-logo {
+    padding: 0 0 14px 0;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 10px 12px;
+  }
+
+  .sidebar-bottom {
+    flex-direction: row;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .sidebar-bottom .nav-item {
+    justify-content: center;
+  }
+}

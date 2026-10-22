@@ -1,0 +1,49 @@
+# ===================================================================================================
+
+Comandos de Instalação e npm
+npm run lint
+npm run build
+npm run dev
+npm run dev -- --open
+npm run server
+
+npm install | npm install -g npm@11.19.1
+npm install react-router-dom
+npm install json-server --save-dev
+npm install concurrently --save-dev
+
+# ===================================================================================================
+
+SQL
+CREATE DATABASE totalmed;
+
+Deletar usuário
+DELETE FROM usuario WHERE id_usuario = 9
+
+Console
+localStorage.setItem('usuario', JSON.stringify({ id: 1, nome: 'Teste', role: 'PACIENTE' }))
+
+# ===================================================================================================
+
+Claude
+anthropics/claude-plugins-official
+
+Plugins
+claude-security@claude-plugins-official
+frontend-design@claude-plugins-official
+superpowers@claude-plugins-official
+typescript-lsp@claude-plugins-official
+
+# ===================================================================================================
+
+Comandos de atualizar do GitHub (Apague o GitHub do projeto)
+git remote add origin https://github.com/henriq-oz/totalmed
+git init
+git status
+
+git add .   → prepara as mudanças
+git commit -m "descrição das mudanças"  → salva no histórico
+git push    → envia para o GitHub
+git pull    → baixa atualizações
+
+# ===================================================================================================

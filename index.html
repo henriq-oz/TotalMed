@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/src/assets/img_icon_tm.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Atkinson+Hyperlegible+Mono:wght@600&family=Bree+Serif&display=swap" rel="stylesheet" />
+    <title>TotalMed</title>
+    <script>
+      // Aplica o tema salvo antes da primeira pintura, para não piscar claro.
+      // Mesma chave e classe de src/utils/tema.js.
+      document.documentElement.classList.toggle('tema-escuro', localStorage.getItem('temaEscuro') === 'true');
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

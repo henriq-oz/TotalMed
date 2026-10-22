@@ -1,0 +1,9 @@
+{
+  "medicos": [],
+  "pacientes": [],
+  "administradores": [],
+  "unidades": [],
+  "preAgendamentos": [],
+  "filaTriagem": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

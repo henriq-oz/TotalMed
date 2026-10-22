@@ -1,0 +1,168 @@
+.requests-empty {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.requests-empty-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 32px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.requests-empty-card button {
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.request-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.request-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.request-card strong {
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.request-card p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin: 3px 0 0;
+}
+
+.request-status {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+/* Mesmos nomes de classe dos selos do painel (utils/preAgendamento.js). */
+.request-status.status-andamento {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.request-status.status-cancelado {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.request-status.status-agendado {
+  background: var(--info-soft);
+  color: var(--info);
+}
+
+.request-status.status-finalizado {
+  background: var(--nav-hover);
+  color: var(--text-secondary);
+}
+
+.request-cancelar {
+  align-self: flex-start;
+  padding: 8px 14px;
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.request-cancelar:hover:not(:disabled) {
+  background: var(--danger-soft);
+}
+
+.request-cancelar:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Situação do pedido */
+.request-card .request-detalhe {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--card-border);
+}
+
+.request-codigo {
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+}
+
+.request-codigo-rotulo,
+.request-recusa span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.request-card .request-codigo-valor {
+  display: block;
+  margin: 2px 0 6px;
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent-dark);
+  /* O paciente pode copiar o código para mandar a um acompanhante. */
+  user-select: all;
+}
+
+.request-card .request-codigo p {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.request-recusa {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--danger-soft);
+}
+
+.request-card .request-recusa p {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  .request-topo {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

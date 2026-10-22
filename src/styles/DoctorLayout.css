@@ -1,0 +1,253 @@
+/* Reset escopado: o App.css do projeto não é importado em lugar nenhum, então
+   as telas do médico zeram as margens padrão por conta própria. O :where()
+   mantém a especificidade em zero para qualquer classe conseguir sobrescrever. */
+:where(.doctor-shell) :where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+:where(.doctor-shell) :where(h1, h2, h3, h4, p, ul, ol, figure) {
+  margin: 0;
+  padding: 0;
+}
+
+:where(.doctor-shell) :where(ul, ol) {
+  list-style: none;
+}
+
+/* As cores vêm de tema.css. */
+.doctor-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--content-bg);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Sidebar */
+.doctor-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.doctor-sidebar-logo {
+  padding: 0 8px 20px 8px;
+}
+
+.doctor-sidebar-logo img {
+  width: auto;
+  height: 65px;
+}
+
+.doctor-identity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 10px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+}
+
+.doctor-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-dark);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.doctor-identity-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.doctor-identity-text strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doctor-identity-text span {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.doctor-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.doctor-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.doctor-nav-item:hover {
+  background: var(--nav-hover);
+}
+
+.doctor-nav-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.doctor-nav-item-active {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.doctor-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.doctor-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--sidebar-border);
+}
+
+.doctor-nav-item-logout:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+/* Conteúdo */
+.doctor-main {
+  flex: 1;
+  padding: 44px 48px;
+  min-width: 0;
+}
+
+/* Botão de ajuda */
+.doctor-help-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  /* Invertido em relação à página, para destacar nos dois temas. */
+  background: var(--text-primary);
+  color: var(--content-bg);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.doctor-help-fab:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doctor-shell,
+  .doctor-nav-item,
+  .doctor-help-fab {
+    transition: none;
+  }
+
+  .doctor-help-fab:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .doctor-sidebar {
+    width: 215px;
+    padding: 20px 12px;
+  }
+
+  .doctor-main {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .doctor-shell {
+    flex-direction: column;
+  }
+
+  .doctor-sidebar {
+    position: relative;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .doctor-sidebar-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .doctor-sidebar-logo {
+    padding: 0 0 12px 0;
+  }
+
+  .doctor-sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .doctor-nav-item {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 10px 12px;
+  }
+
+  .doctor-sidebar-bottom {
+    flex-direction: row;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .doctor-sidebar-bottom .doctor-nav-item {
+    justify-content: center;
+  }
+}
