@@ -27,10 +27,10 @@ npm run dev
 Após realizar alterações no projeto, execute:
 
 ```bash
-git add .: prepara suas alterações.
+git add . : prepara suas alterações.
 git commit -m "Atualiza projeto TotalMed"
-git push: envia os commits para o GitHub.
-git pull: recebe as atualizações do GitHub.
+git push : envia os commits para o GitHub.
+git pull : recebe as atualizações do GitHub.
 ```
 
 ## Repositório
