@@ -1,18 +1,35 @@
-# React + Vite
+# TotalMed — Sistema de Pré-Agendamento Médico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **TotalMed** é um projeto de Trabalho de Conclusão de Curso (TCC) que busca facilitar o pré-agendamento de atendimentos médicos, reduzir a burocracia na recepção e melhorar a organização das solicitações.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- Vite
+- JavaScript
+- ESLint
 
-## React Compiler
+## Como executar
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+git clone https://github.com/henriq-oz/TotalMed.git
+cd TotalMed
+npm install
+npm run dev
+```
 
-Note: This will impact Vite dev & build performances.
+## Como atualizar o GitHub
 
-## Expanding the ESLint configuration
+Após realizar alterações no projeto, execute:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git add .
+git commit -m "Atualiza projeto TotalMed"
+git push
+```
+
+## Repositório
+
+[GitHub — TotalMed](https://github.com/henriq-oz/TotalMed)
+
+Desenvolvido como parte de um Trabalho de Conclusão de Curso (TCC), com foco em soluções digitais para a organização do pré-agendamento médico.
