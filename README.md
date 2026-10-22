@@ -13,19 +13,24 @@ O **TotalMed** é um projeto de Trabalho de Conclusão de Curso (TCC) que busca 
 
 ```bash
 git clone https://github.com/henriq-oz/TotalMed.git
-cd TotalMed
+cd Totalmed
 npm install
+npm install react-router-dom
+npm install json-server --save-dev
+npm install concurrently --save-dev
+npm run lint
+npm run build
 npm run dev
 ```
-
 ## Como atualizar o GitHub
 
 Após realizar alterações no projeto, execute:
 
 ```bash
-git add .
+git add .: prepara suas alterações.
 git commit -m "Atualiza projeto TotalMed"
-git push
+git push: envia os commits para o GitHub.
+git pull: recebe as atualizações do GitHub.
 ```
 
 ## Repositório
